@@ -36,7 +36,7 @@ Suppose you have a redux in your project. It can be vanilla redux or [redux-tool
 
 Since you have storage, you have some data that needs to be derived from some place, for example, from some API. This package gives you an `initSagaQuery` function which needs to be called once per domain. Domain is like a record in store that will be responsible for managing its data.
 
-```
+```javascript
 import { initSagaQuery } from "redux-saga-query";
 
 var DOMAIN = "api";
@@ -58,7 +58,7 @@ export { apiReducer, query, mutation, selector };
 
 Then you need to connect `apiReducer` to your redux store:
 
-```
+```javascript
 import { apiReducer } from "./api";
 
 export var rootReducer = {
@@ -68,7 +68,7 @@ export var rootReducer = {
 
 Now you are ready to use other functions provided by `initSagaQuery` in your application.
 
-```
+```javascript
 function* fetchBooks() {
   var books = yield call(query, {
     key: ["books-query"],
